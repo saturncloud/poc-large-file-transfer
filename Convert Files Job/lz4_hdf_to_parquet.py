@@ -88,7 +88,7 @@ def read_hdf_and_save_as_parquet():
 
     df.columns = df.columns.astype(str)
 
-    print("Converting to dask dataframe.")
+    print("Converting to Dask dataframe.")
     ddf = dd.from_pandas(df, chunksize=200000)
     del df
     print("Saving to parquet.")

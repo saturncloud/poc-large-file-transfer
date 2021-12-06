@@ -2,16 +2,14 @@
     "name": "read-parquet-files",
     "image_uri": "saturncloud/saturn:2021.09.20",
     "description": "Use Dask to read parquet files from s3, select a subset, and do analysis.",
-    "working_directory": "/home/jovyan/git-repos/benchmarks/customink-poc/Read Files Script",
+    "working_directory": "/home/jovyan/git-repos/poc-large-file-transfer/Read Files Script",
     "environment_variables": {
         "AWS_PARQUET_URI": "s3://saturn-public-data/hdf5-files/parquet/data.parquet"
     },
     "git_repositories": [
         {
-            "url": "git@github.com:saturncloud/benchmarks.git",
-            "location": "benchmarks",
-            "reference_type": "branch",
-            "reference": "customink-poc",
+            "url": "git@github.com:saturncloud/poc-large-file-transfer.git",
+            "location": "poc-large-file-transfer",
             "on_restart": "reclone"
         }
     ],
