@@ -1,0 +1,26 @@
+{
+    "name": "extract-lz4-to-parquet",
+    "image_uri": "saturncloud/saturn:2021.09.20",
+    "description": "POC of extracting a lz4 compressed folder of hdf files to parquet files.",
+    "working_directory": "/home/jovyan/git-repos/benchmarks/customink-poc",
+    "environment_variables": {
+        "AWS_SAVE_URI": "s3://saturn-public-data/hdf5-files/parquet/data.parquet",
+        "AWS_DATA_BUCKET": "saturn-public-data",
+        "AWS_DATA_FOLDER": "hdf5-files/lz4/"
+    },
+    "git_repositories": [
+        {
+            "url": "git@github.com:saturncloud/benchmarks.git",
+            "location": "benchmarks",
+            "reference_type": "branch",
+            "reference": "customink-poc",
+            "on_restart": "reclone"
+        }
+    ],
+    "job": {
+        "instance_type": "x116xlarge",
+        "command": " python 'Convert Files Job/lz4_hdf_to_parquet.py'",
+        "concurrency_policy": "Forbid",
+        "backoff_limit": 1
+    }
+}
